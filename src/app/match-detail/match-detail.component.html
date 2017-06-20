@@ -1,0 +1,12 @@
+<b>Match List</b>
+<div class="col-md-12" style="overflow:scroll">
+<table class="table">  
+  <tr>
+    <td class="row" *ngFor="let match of selectedMatches">
+          <button type="submit" class="btn btn-small" (click)="oneMatchSelect(match)">Match Details</button>        
+          Match# :{{match.id}} <br>
+          {{match.team1}} <br> VS <br> {{match.team2}} <br>          
+    </td>
+  </tr>
+</table>
+</div>

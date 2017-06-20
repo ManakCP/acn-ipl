@@ -1,0 +1,45 @@
+<nav class="navbar navbar-inverse">  
+  <div class="contaner-fluid">
+    <div class="navbar-header">
+      <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#myNavbar'>                         
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <span><img src="../assets/accenture_logo.png" width="30" height="30" class="d-inline-block align-top" alt="" /></span>
+        Accenture IPL
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">      
+      <ul class="nav navbar-nav">
+        <li>
+          <div class="form-group" style="margin-top: 10px">
+          <select class="form-control" (change)="onSeasonSelect($event.target.value)">
+            <option *ngFor="let match of this.matches | unique">
+              season - {{match.season}}
+            </option>
+          </select>    
+          </div>
+        </li>
+        <li>
+          <div class="form-group" style="margin-top: 10px; margin-left: 10px">
+            <button class="btn" (click)="reset()">Reset</button>
+          </div>
+        </li>        
+      </ul>
+    </div>
+  </div>  
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+      <app-match-detail [selectedMatches]='selected_matches' (notify)="onMatchDetailSelected($event)"></app-match-detail>
+    </div>    
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-12  col-lg-12">
+      <app-score-card [matchDetail] = 'match_detail'></app-score-card>
+    </div>    
+  </div>
+</div>
